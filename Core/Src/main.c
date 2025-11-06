@@ -107,7 +107,7 @@ int main(void)
   uint32_t lastSecond = 3;
   uint8_t rxBuffer[ENTER_BUFFER_SIZE] = {0};
   uint8_t rxCount = 0;
-  
+  哈哈哈哈
   /* 等待3秒内的输入 */
   while((HAL_GetTick() - startTime) < WAIT_TIME_MS)
   {
