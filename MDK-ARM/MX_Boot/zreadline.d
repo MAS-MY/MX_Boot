@@ -1,0 +1,13 @@
+mx_boot\zreadline.o: ..\rz\zreadline.c
+mx_boot\zreadline.o: ..\rz\zglobal.h
+mx_boot\zreadline.o: ..\rz\config.h
+mx_boot\zreadline.o: ..\rz\zreadline.h
+mx_boot\zreadline.o: D:\keil\ARM\ARMCC\Bin\..\include\stddef.h
+mx_boot\zreadline.o: D:\keil\ARM\ARMCC\Bin\..\include\stdlib.h
+mx_boot\zreadline.o: D:\keil\ARM\ARMCC\Bin\..\include\stdio.h
+mx_boot\zreadline.o: D:\keil\ARM\ARMCC\Bin\..\include\signal.h
+mx_boot\zreadline.o: D:\keil\ARM\ARMCC\Bin\..\include\ctype.h
+mx_boot\zreadline.o: D:\keil\ARM\ARMCC\Bin\..\include\errno.h
+mx_boot\zreadline.o: D:\keil\ARM\ARMCC\Bin\..\include\string.h
+mx_boot\zreadline.o: ..\rz\log.h
+mx_boot\zreadline.o: D:\keil\ARM\ARMCC\Bin\..\include\stdarg.h

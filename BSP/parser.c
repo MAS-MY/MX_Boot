@@ -1,0 +1,173 @@
+/*
+ * Copyright (c) 2006-2021, RT-Thread Development Team
+ *
+ * SPDX-License-Identifier: Apache-2.0
+ *
+ * Change Logs:
+ * Date           Author       Notes
+ * 2006-04-30     Bernard      the first version for FinSH
+ * 2006-05-08     Bernard      change finsh thread stack to 2048
+ * 2006-06-03     Bernard      add support for skyeye
+ * 2006-09-24     Bernard      remove the code related with hardware
+ * 2010-01-18     Bernard      fix down then up key bug.
+ * 2010-03-19     Bernard      fix backspace issue and fix device read in shell.
+ * 2010-04-01     Bernard      add prompt output when start and remove the empty history
+ * 2011-02-23     Bernard      fix variable section end issue of finsh shell
+ *                             initialization when use GNU GCC compiler.
+ * 2016-11-26     armink       add password authentication
+ * 2018-07-02     aozima       add custom prompt support.
+ */
+
+#include "types.h"
+#include "usart.h"
+#include "command.h"
+#include "string.h"
+
+#define FINSH_ARG_MAX    8
+
+ 
+ static int msh_split(char *cmd, rt_size_t length, char *argv[FINSH_ARG_MAX])
+ {
+	 char *ptr;
+	 rt_size_t position;
+	 rt_size_t argc;
+	 rt_size_t i;
+ 
+	 ptr = cmd;
+	 position = 0; argc = 0;
+ 
+	 while (position < length)
+	 {
+		 /* strip bank and tab */
+		 while ((*ptr == ' ' || *ptr == '\t') && position < length)
+		 {
+			 *ptr = '\0';
+			 ptr ++; position ++;
+		 }
+ 
+		 if(argc >= FINSH_ARG_MAX)
+		 {
+			 My_putstr("Too many args ! We only Use:\n");
+			 for(i = 0; i < argc; i++)
+			 {
+				 My_putstr(argv[i]);
+			 }
+			 My_putstr("\r\n");
+			 break;
+		 }
+ 
+		 if (position >= length) break;
+ 
+		 /* handle string */
+		 if (*ptr == '"')
+		 {
+			 ptr ++; position ++;
+			 argv[argc] = ptr; argc ++;
+ 
+			 /* skip this string */
+			 while (*ptr != '"' && position < length)
+			 {
+				 if (*ptr == '\\')
+				 {
+					 if (*(ptr + 1) == '"')
+					 {
+						 ptr ++; position ++;
+					 }
+				 }
+				 ptr ++; position ++;
+			 }
+			 if (position >= length) break;
+ 
+			 /* skip '"' */
+			 *ptr = '\0'; ptr ++; position ++;
+		 }
+		 else
+		 {
+			 argv[argc] = ptr;
+			 argc ++;
+			 while ((*ptr != ' ' && *ptr != '\t') && position < length)
+			 {
+				 ptr ++; position ++;
+			 }
+			 if (position >= length) break;
+		 }
+	 }
+ 
+	 return argc;
+ }
+
+
+ static int _msh_exec_cmd(char *cmd, rt_size_t length, int *retp)
+ {
+	 int argc;
+	 rt_size_t cmd0_size = 0;
+	 struct command *command_t;
+
+	 char *argv[FINSH_ARG_MAX];
+	 char cmd_name[20];
+	 int i;
+ 
+ 	 /* find the size of first command : load a b c */
+	 while ((cmd[cmd0_size] != ' ' && cmd[cmd0_size] != '\t') && cmd0_size < length)
+		 cmd0_size ++;
+	 if (cmd0_size == 0)
+		 return -1;
+
+	 if (cmd0_size > 20)
+	 	cmd0_size = 20;
+	 for (i = 0; i < cmd0_size; i++)
+	 	cmd_name[i] = cmd[i];
+	 cmd_name[i] = '\0';
+ 
+	 command_t = find_cmd(cmd_name);
+	 if (command_t == RT_NULL)
+		 return -1;
+ 
+	 /* split arguments */
+	 memset(argv, 0x00, sizeof(argv));
+	 argc = msh_split(cmd, length, argv);
+	 if (argc == 0)
+		 return -1;
+ 
+	 /* exec this command */
+	 *retp = command_t->function(argc, argv);
+	 return 0;
+ }
+ int msh_exec(char *cmd, rt_size_t length)
+ {
+	 int cmd_ret;
+ 
+	 /* strim the beginning of command */
+	 while (*cmd  == ' ' || *cmd == '\t')
+	 {
+		 cmd++;
+		 length--;
+	 }
+ 
+	 if (length == 0)
+		 return 0;
+ 
+	 /* Exec sequence:
+	  * 1. built-in command
+	  * 2. module(if enabled)
+	  */
+	 if (_msh_exec_cmd(cmd, length, &cmd_ret) == 0)
+	 {
+		 return cmd_ret;
+	 }
+ 
+	 /* truncate the cmd at the first space. */
+	 {
+		 char *tcmd;
+		 tcmd = cmd;
+		 while (*tcmd != ' ' && *tcmd != '\0')
+		 {
+			 tcmd++;
+		 }
+		 *tcmd = '\0';
+	 }
+	 My_putstr(cmd);
+	 My_putstr(" command not found.\r\n");
+	 return -1;
+ }
+

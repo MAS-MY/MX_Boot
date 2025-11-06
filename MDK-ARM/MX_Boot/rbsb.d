@@ -1,0 +1,9 @@
+mx_boot\rbsb.o: ..\rz\rbsb.c
+mx_boot\rbsb.o: ..\rz\zglobal.h
+mx_boot\rbsb.o: ..\rz\config.h
+mx_boot\rbsb.o: ..\rz\zreadline.h
+mx_boot\rbsb.o: D:\keil\ARM\ARMCC\Bin\..\include\stddef.h
+mx_boot\rbsb.o: D:\keil\ARM\ARMCC\Bin\..\include\stdio.h
+mx_boot\rbsb.o: D:\keil\ARM\ARMCC\Bin\..\include\errno.h
+mx_boot\rbsb.o: ..\rz\log.h
+mx_boot\rbsb.o: D:\keil\ARM\ARMCC\Bin\..\include\stdarg.h

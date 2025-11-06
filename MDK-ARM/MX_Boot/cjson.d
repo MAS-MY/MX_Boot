@@ -1,0 +1,9 @@
+mx_boot\cjson.o: ..\BSP\cJSON.c
+mx_boot\cjson.o: D:\keil\ARM\ARMCC\Bin\..\include\string.h
+mx_boot\cjson.o: D:\keil\ARM\ARMCC\Bin\..\include\stdio.h
+mx_boot\cjson.o: D:\keil\ARM\ARMCC\Bin\..\include\math.h
+mx_boot\cjson.o: D:\keil\ARM\ARMCC\Bin\..\include\stdlib.h
+mx_boot\cjson.o: D:\keil\ARM\ARMCC\Bin\..\include\float.h
+mx_boot\cjson.o: D:\keil\ARM\ARMCC\Bin\..\include\limits.h
+mx_boot\cjson.o: D:\keil\ARM\ARMCC\Bin\..\include\ctype.h
+mx_boot\cjson.o: ..\BSP\cJSON.h

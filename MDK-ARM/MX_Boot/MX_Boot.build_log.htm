@@ -1,0 +1,227 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Tool Versions:</h2>
+IDE-Version: ¶ÃVision V5.39.0.0
+Copyright (C) 2023 ARM Ltd and ARM Germany GmbH. All rights reserved.
+License Information: 1 mmh, 1, LIC=IK1BF-67W9I-IIN5V-P10Z3-7NG0Y-ZDAVU
+ 
+Tool Versions:
+Toolchain:       MDK-ARM Plus  Version: 5.39.0.0
+Toolchain Path:  D:\keil\ARM\ARMCC\Bin
+C Compiler:      Armcc.exe V5.06 update 7 (build 960)
+Assembler:       Armasm.exe V5.06 update 7 (build 960)
+Linker/Locator:  ArmLink.exe V5.06 update 7 (build 960)
+Library Manager: ArmAr.exe V5.06 update 7 (build 960)
+Hex Converter:   FromElf.exe V5.06 update 7 (build 960)
+CPU DLL:         SARMCM3.DLL V5.39.0.0
+Dialog DLL:      DCM.DLL V1.17.5.0
+Target DLL:      CMSIS_AGDI.dll V1.33.16.0
+Dialog DLL:      TCM.DLL V1.56.4.0
+ 
+<h2>Project:</h2>
+F:\STM32_PJ\œÓƒø\BootLoader…˝º∂\MX_Boot\MDK-ARM\MX_Boot.uvprojx
+Project File Date:  05/15/2025
+
+<h2>Output:</h2>
+*** Using Compiler 'V5.06 update 7 (build 960)', folder: 'D:\keil\ARM\ARMCC\Bin'
+Build target 'MX_Boot'
+compiling sdio.c...
+../BSP/types.h(18): warning:  #47-D: incompatible redefinition of macro "NULL"  (declared at line 61 of "D:\keil\ARM\ARMCC\Bin\..\include\stdio.h")
+  #define NULL ((void *)0)
+../Core/Src/sdio.c: 1 warning, 0 errors
+compiling stm32f4xx_hal_msp.c...
+../BSP/types.h(18): warning:  #47-D: incompatible redefinition of macro "NULL"  (declared at line 61 of "D:\keil\ARM\ARMCC\Bin\..\include\stdio.h")
+  #define NULL ((void *)0)
+../Core/Src/stm32f4xx_hal_msp.c: 1 warning, 0 errors
+compiling OTA_Command.c...
+../BSP/types.h(18): warning:  #47-D: incompatible redefinition of macro "NULL"  (declared at line 61 of "D:\keil\ARM\ARMCC\Bin\..\include\stdio.h")
+  #define NULL ((void *)0)
+..\BSP\OTA_Command.c(87): warning:  #177-D: variable "result"  was declared but never referenced
+      int result = -1;
+..\BSP\OTA_Command.c(88): warning:  #177-D: variable "end_char"  was declared but never referenced
+      char end_char = 0x1A; // Ctrl+Z ÁªìÊùüÁ¨?
+..\BSP\OTA_Command.c(138): warning:  #177-D: variable "firmware_size"  was declared but never referenced
+      uint32_t firmware_size = dataLen;
+..\BSP\OTA_Command.c(176): warning:  #177-D: variable "request_payload"  was declared but never referenced
+      char request_payload[128];
+..\BSP\OTA_Command.c(339): warning:  #144-D: a value of type "int (*)(void)" cannot be used to initialize an entity of type "int (*)(int, char **)"
+      ota_f,
+..\BSP\OTA_Command.c: 6 warnings, 0 errors
+compiling MyBoot.c...
+../BSP/types.h(18): warning:  #47-D: incompatible redefinition of macro "NULL"  (declared at line 61 of "D:\keil\ARM\ARMCC\Bin\..\include\stdio.h")
+  #define NULL ((void *)0)
+..\BSP\MyBoot.c(257): warning:  #144-D: a value of type "void *" cannot be used to initialize an entity of type "void (*)(void)"
+      void (*app_reset_handler)(void) = (void*)vector_table[1];
+..\BSP\MyBoot.c: 2 warnings, 0 errors
+compiling shell.c...
+compiling gpio.c...
+../BSP/types.h(18): warning:  #47-D: incompatible redefinition of macro "NULL"  (declared at line 61 of "D:\keil\ARM\ARMCC\Bin\..\include\stdio.h")
+  #define NULL ((void *)0)
+../Core/Src/gpio.c: 1 warning, 0 errors
+compiling clean_cmd.c...
+../BSP/types.h(18): warning:  #47-D: incompatible redefinition of macro "NULL"  (declared at line 61 of "D:\keil\ARM\ARMCC\Bin\..\include\stdio.h")
+  #define NULL ((void *)0)
+..\BSP\clean_cmd.c(9): warning:  #940-D: missing return statement at end of non-void function "clean_f" 
+  }
+..\BSP\clean_cmd.c(19): warning:  #144-D: a value of type "int (*)(void)" cannot be used to initialize an entity of type "int (*)(int, char **)"
+  	clean_f,
+..\BSP\clean_cmd.c: 3 warnings, 0 errors
+compiling stm32f4xx_it.c...
+../BSP/types.h(18): warning:  #47-D: incompatible redefinition of macro "NULL"  (declared at line 61 of "D:\keil\ARM\ARMCC\Bin\..\include\stdio.h")
+  #define NULL ((void *)0)
+../Core/Src/stm32f4xx_it.c: 1 warning, 0 errors
+compiling usart.c...
+../BSP/types.h(18): warning:  #47-D: incompatible redefinition of macro "NULL"  (declared at line 61 of "D:\keil\ARM\ARMCC\Bin\..\include\stdio.h")
+  #define NULL ((void *)0)
+../Core/Src/usart.c: 1 warning, 0 errors
+compiling help_cmd.c...
+compiling parser.c...
+compiling main.c...
+../BSP/types.h(18): warning:  #47-D: incompatible redefinition of macro "NULL"  (declared at line 61 of "D:\keil\ARM\ARMCC\Bin\..\include\stdio.h")
+  #define NULL ((void *)0)
+../Core/Src/main.c(110): warning:  #177-D: variable "rxBuffer"  was declared but never referenced
+    uint8_t rxBuffer[ENTER_BUFFER_SIZE] = {0};
+../Core/Src/main.c(111): warning:  #177-D: variable "rxCount"  was declared but never referenced
+    uint8_t rxCount = 0;
+../Core/Src/main.c: 3 warnings, 0 errors
+compiling JSON_Handle.c...
+../BSP/types.h(18): warning:  #47-D: incompatible redefinition of macro "NULL"  (declared at line 61 of "D:\keil\ARM\ARMCC\Bin\..\include\stdio.h")
+  #define NULL ((void *)0)
+..\BSP\JSON_Handle.c(69): warning:  #1-D: last line of file ends without a newline
+  }
+..\BSP\JSON_Handle.c(13): warning:  #177-D: variable "params"  was declared but never referenced
+      cJSON *params = NULL;
+..\BSP\JSON_Handle.c: 3 warnings, 0 errors
+compiling bsp_4G.c...
+../BSP/types.h(18): warning:  #47-D: incompatible redefinition of macro "NULL"  (declared at line 61 of "D:\keil\ARM\ARMCC\Bin\..\include\stdio.h")
+  #define NULL ((void *)0)
+..\BSP\bsp_4G.c(134): warning:  #1-D: last line of file ends without a newline
+  }
+..\BSP\bsp_4G.c: 2 warnings, 0 errors
+compiling test.c...
+../BSP/types.h(18): warning:  #47-D: incompatible redefinition of macro "NULL"  (declared at line 61 of "D:\keil\ARM\ARMCC\Bin\..\include\stdio.h")
+  #define NULL ((void *)0)
+..\BSP\test.c(16): warning:  #1-D: last line of file ends without a newline
+  #endif
+..\BSP\test.c: 2 warnings, 0 errors
+compiling mrz.c...
+../BSP/types.h(18): warning:  #47-D: incompatible redefinition of macro "NULL"  (declared at line 56 of "D:\keil\ARM\ARMCC\Bin\..\include\string.h")
+  #define NULL ((void *)0)
+..\rz\mrz.c(28): warning:  #223-D: function "flush_buffer" declared implicitly
+      flush_buffer();
+..\rz\mrz.c(15): warning:  #177-D: variable "SectorError"  was declared but never referenced
+      uint32_t SectorError = 0;
+..\rz\mrz.c: 3 warnings, 0 errors
+compiling file.c...
+../BSP/types.h(18): warning:  #47-D: incompatible redefinition of macro "NULL"  (declared at line 84 of "D:\keil\ARM\ARMCC\Bin\..\include\stddef.h")
+  #define NULL ((void *)0)
+..\file\file.c: 1 warning, 0 errors
+compiling go_cmd.c...
+..\BSP\go_cmd.c(29): warning:  #223-D: function "start_app" declared implicitly
+  	 start_app(0x08060000); 
+..\BSP\go_cmd.c(30): warning:  #940-D: missing return statement at end of non-void function "go_f" 
+  }
+..\BSP\go_cmd.c: 2 warnings, 0 errors
+compiling sd_diskio.c...
+../BSP/types.h(18): warning:  #47-D: incompatible redefinition of macro "NULL"  (declared at line 61 of "D:\keil\ARM\ARMCC\Bin\..\include\stdio.h")
+  #define NULL ((void *)0)
+../FATFS/Target/sd_diskio.c: 1 warning, 0 errors
+compiling fatfs.c...
+../BSP/types.h(18): warning:  #47-D: incompatible redefinition of macro "NULL"  (declared at line 61 of "D:\keil\ARM\ARMCC\Bin\..\include\stdio.h")
+  #define NULL ((void *)0)
+../FATFS/App/fatfs.c: 1 warning, 0 errors
+compiling diskio.c...
+../BSP/types.h(18): warning:  #47-D: incompatible redefinition of macro "NULL"  (declared at line 61 of "D:\keil\ARM\ARMCC\Bin\..\include\stdio.h")
+  #define NULL ((void *)0)
+../Middlewares/Third_Party/FatFs/src/diskio.c: 1 warning, 0 errors
+compiling zm.c...
+../BSP/types.h(18): warning:  #47-D: incompatible redefinition of macro "NULL"  (declared at line 56 of "D:\keil\ARM\ARMCC\Bin\..\include\string.h")
+  #define NULL ((void *)0)
+..\rz\zm.c(494): warning:  #223-D: function "putdatas" declared implicitly
+  	putdatas(s, len);
+..\rz\zm.c(751): warning:  #111-D: statement is unreachable
+  		break;
+..\rz\zm.c(761): warning:  #111-D: statement is unreachable
+  			break;
+..\rz\zm.c(767): warning:  #111-D: statement is unreachable
+  			break;
+..\rz\zm.c(789): warning:  #111-D: statement is unreachable
+  		break;
+..\rz\zm.c(733): warning:  #177-D: variable "intro_msg"  was declared but never referenced
+  	char *intro_msg;
+..\rz\zm.c(1164): warning:  #223-D: function "fstat" declared implicitly
+  	if (-1==fstat(fileno(f),&st)) {
+..\rz\zm.c(1164): warning:  #223-D: function "fileno" declared implicitly
+  	if (-1==fstat(fileno(f),&st)) {
+..\rz\zm.c(1197): warning:  #111-D: statement is unreachable
+  				break;
+..\rz\zm.c(1202): warning:  #111-D: statement is unreachable
+  				break;
+..\rz\zm.c(55): warning:  #177-D: variable "frametypes"  was declared but never referenced
+  static const char *frametypes[] = {
+..\rz\zm.c: 12 warnings, 0 errors
+compiling Fat_cmd.c...
+../BSP/types.h(18): warning:  #47-D: incompatible redefinition of macro "NULL"  (declared at line 61 of "D:\keil\ARM\ARMCC\Bin\..\include\stdio.h")
+  #define NULL ((void *)0)
+..\BSP\Fat_cmd.c(335): warning:  #177-D: variable "fileByte"  was declared but never referenced
+          uint8_t fileByte;
+..\BSP\Fat_cmd.c(333): warning:  #177-D: variable "mismatch"  was declared but never referenced
+      int mismatch = 0;
+..\BSP\Fat_cmd.c(410): warning:  #144-D: a value of type "void (*)(void)" cannot be used to initialize an entity of type "int (*)(int, char **)"
+      fatfs_menu,
+..\BSP\Fat_cmd.c: 4 warnings, 0 errors
+compiling ff.c...
+../BSP/types.h(18): warning:  #47-D: incompatible redefinition of macro "NULL"  (declared at line 61 of "D:\keil\ARM\ARMCC\Bin\..\include\stdio.h")
+  #define NULL ((void *)0)
+../Middlewares/Third_Party/FatFs/src/ff.c: 1 warning, 0 errors
+compiling ff_gen_drv.c...
+../BSP/types.h(18): warning:  #47-D: incompatible redefinition of macro "NULL"  (declared at line 61 of "D:\keil\ARM\ARMCC\Bin\..\include\stdio.h")
+  #define NULL ((void *)0)
+../Middlewares/Third_Party/FatFs/src/ff_gen_drv.c: 1 warning, 0 errors
+compiling syscall.c...
+../BSP/types.h(18): warning:  #47-D: incompatible redefinition of macro "NULL"  (declared at line 61 of "D:\keil\ARM\ARMCC\Bin\..\include\stdio.h")
+  #define NULL ((void *)0)
+../Middlewares/Third_Party/FatFs/src/option/syscall.c: 1 warning, 0 errors
+compiling cc936.c...
+../BSP/types.h(18): warning:  #47-D: incompatible redefinition of macro "NULL"  (declared at line 61 of "D:\keil\ARM\ARMCC\Bin\..\include\stdio.h")
+  #define NULL ((void *)0)
+..\Middlewares\Third_Party\FatFs\src\cc936.c(15): warning:  #177-D: variable "uni2oem"  was declared but never referenced
+  const WCHAR uni2oem[] =
+..\Middlewares\Third_Party\FatFs\src\cc936.c(5470): warning:  #177-D: variable "oem2uni"  was declared but never referenced
+  const WCHAR oem2uni[] =
+..\Middlewares\Third_Party\FatFs\src\cc936.c: 3 warnings, 0 errors
+linking...
+Program Size: Code=50840 RO-data=2388 RW-data=1808 ZI-data=44280  
+FromELF: creating hex file...
+After Build - User command #1: fromelf --bin --output=Objects\Bootloader.bin Objects\Bootloader.axf
+"Objects\Bootloader.axf": Error: Q0122E: Could not open file 'Objects\Bootloader.axf': No such file or directory
+Finished: 0 information, 0 warning and 1 error messages.
+"MX_Boot\MX_Boot.axf" - 0 Error(s), 57 Warning(s).
+
+<h2>Software Packages used:</h2>
+
+Package Vendor: ARM
+                http://www.keil.com/pack/ARM.CMSIS.5.9.0.pack
+                ARM::CMSIS@5.9.0
+                CMSIS (Common Microcontroller Software Interface Standard)
+   * Component: CORE Version: 5.6.0
+
+Package Vendor: Keil
+                https://www.keil.com/pack/Keil.STM32F4xx_DFP.3.0.0.pack
+                Keil::STM32F4xx_DFP@3.0.0
+                STMicroelectronics STM32F4 Series Device Support
+
+<h2>Collection of Component include folders:</h2>
+  ./RTE/_MX_Boot
+  D:/keil/packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include
+
+<h2>Collection of Component Files used:</h2>
+
+   * Component: ARM::CMSIS:CORE@5.6.0
+      Include file:  CMSIS/Core/Include/tz_context.h
+Build Time Elapsed:  00:00:14
+</pre>
+</body>
+</html>
