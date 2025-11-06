@@ -103,7 +103,7 @@ int main(void)
   printf("Press ENTER within 3s to enter shell...\r\n");
   
  
-
+  嘻嘻嘻
   /* 初始化变量 */
   uint32_t startTime = HAL_GetTick();
   uint32_t lastSecond = 3;
